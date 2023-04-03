@@ -12,11 +12,9 @@ export default defineConfig({
     AutoImport({
       imports: ['vue'], // 加上后不用写import { ref } from 'vue'了
       resolvers: [ElementPlusResolver()],
-      dts: "/auto-import.d.ts",
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
-      dts: '/components.d.ts'
+      resolvers: [ElementPlusResolver()]
     }),
   ],
   resolve: {
