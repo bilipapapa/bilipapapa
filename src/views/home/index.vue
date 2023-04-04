@@ -5,6 +5,9 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({
+  name: 'Home',
+})
 const state = reactive({
   count: 0,
 })
