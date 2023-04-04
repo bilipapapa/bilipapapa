@@ -5,8 +5,4 @@
 
 <script setup lang="ts"></script>
 
-<style lang="scss" scoped>
-.app_header + div {
-  min-height: calc(100% - 60px);
-}
-</style>
+<style lang="scss" scoped></style>
