@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <div>Home</div>
-    <span>{{ state.count }}</span>
-    <el-button type="primary">按钮</el-button>
+    <div class="msg-box"></div>
+
+    <div class="menu-box" v-for="item in 3"></div>
   </div>
 </template>
 
@@ -10,13 +10,25 @@
 defineOptions({
   name: 'Home',
 })
-const state = reactive({
-  count: 0,
-})
-
-setInterval(() => {
-  state.count++
-}, 1000)
+const state = reactive({})
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.home {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  .msg-box {
+    width: 40%;
+    height: 50%;
+    border: 1px dashed #000;
+  }
+
+  .menu-box {
+    width: 300px;
+    height: 300px;
+    border: 1px dashed #000;
+    margin-left: 10px;
+  }
+}
+</style>

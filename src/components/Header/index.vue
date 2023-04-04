@@ -55,10 +55,10 @@ onMounted(() => {})
 
   &-content {
     display: flex;
-    height: calc(100% - 10px);
+    height: calc(100%);
     justify-content: space-between;
     align-items: center;
-    padding: 5px 15px 5px 10px;
+    padding: 5px 10px;
   }
 
   .logo-box {
@@ -71,7 +71,6 @@ onMounted(() => {})
     }
     .logoName {
       font-size: 18px;
-      line-height: 70px;
       margin-left: 10px;
     }
   }
