@@ -10,6 +10,34 @@
 
         <!-- 菜单 -->
         <div class="menu-box"></div>
+        <!-- 语言切换 -->
+        <div class="lang-box">
+          {{ $t('hello') }}
+          <el-select @change="changeLang" v-model="currentLocale" class="m-2" placeholder="Select" size="large">
+            <el-option
+              label="zh"
+              value="zh"
+            />
+            <el-option
+              label="en"
+              value="en"
+            />
+            <el-option
+              label="ja"
+              value="ja"
+            />
+          </el-select>
+          <!-- <el-dropdown @command="changeLang" trigger="click">
+            <span class="el-dropdown-link">
+              <img class="lang-icon" src="@/assets/svg/lang.svg" alt="" />
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item command="en">EN</el-dropdown-item>
+              <el-dropdown-item command="zh">简体中文</el-dropdown-item>
+              <el-dropdown-item command="ja">日本</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown> -->
+        </div>
 
         <!-- 用户信息 -->
         <div class="userInfo-box">
@@ -22,17 +50,24 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+const i18n = useI18n()
 defineOptions({
   name: 'Header',
 })
 const state = reactive({
   logoName: '待定',
-  userName: '用户名',
+  userName: i18n.t('hello'),
 })
 
 onBeforeMount(() => {})
 
 onMounted(() => {})
+
+let currentLocale = i18n.locale.value
+function changeLang (lang:string) {
+  i18n.locale.value = lang
+}
 </script>
 
 <style lang="scss" scoped>
@@ -75,6 +110,17 @@ onMounted(() => {})
     }
   }
 
+  .menu-box {
+    flex: 1;
+  }
+
+  .lang-box {
+    margin-right: 15px;
+    .lang-icon {
+      cursor: pointer;
+      width: 15px;
+    }
+  }
   .userInfo-box {
     display: flex;
     align-items: center;
