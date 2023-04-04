@@ -1,7 +1,9 @@
 <template>
-  <div>Home</div>
-  <span>{{ state.count }}</span>
-  <el-button type="primary">按钮</el-button>
+  <div class="home">
+    <div>Home</div>
+    <span>{{ state.count }}</span>
+    <el-button type="primary">按钮</el-button>
+  </div>
 </template>
 
 <script setup lang="ts">
