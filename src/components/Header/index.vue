@@ -13,30 +13,16 @@
         <!-- 语言切换 -->
         <div class="lang-box">
           {{ $t('hello') }}
-          <el-select @change="changeLang" v-model="currentLocale" class="m-2" placeholder="Select" size="large">
-            <el-option
-              label="zh"
-              value="zh"
-            />
-            <el-option
-              label="en"
-              value="en"
-            />
-            <el-option
-              label="ja"
-              value="ja"
-            />
-          </el-select>
-          <!-- <el-dropdown @command="changeLang" trigger="click">
-            <span class="el-dropdown-link">
-              <img class="lang-icon" src="@/assets/svg/lang.svg" alt="" />
-            </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item command="en">EN</el-dropdown-item>
-              <el-dropdown-item command="zh">简体中文</el-dropdown-item>
-              <el-dropdown-item command="ja">日本</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown> -->
+          <a-dropdown :trigger="['click']" v-model="currentLocale">
+            <img class="lang-icon" src="@/assets/svg/lang.svg" alt="" />
+            <template #overlay>
+              <a-menu @click="changeLang">
+                <a-menu-item key="en">EN</a-menu-item>
+                <a-menu-item key="zh">简体中文</a-menu-item>
+                <a-menu-item key="ja">日本</a-menu-item>
+              </a-menu>
+            </template>
+          </a-dropdown>
         </div>
 
         <!-- 用户信息 -->
@@ -50,6 +36,7 @@
 </template>
 
 <script setup lang="ts">
+import { MenuProps } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
 defineOptions({
@@ -57,7 +44,7 @@ defineOptions({
 })
 const state = reactive({
   logoName: '待定',
-  userName: i18n.t('hello'),
+  userName: '用户名',
 })
 
 onBeforeMount(() => {})
@@ -65,8 +52,9 @@ onBeforeMount(() => {})
 onMounted(() => {})
 
 let currentLocale = i18n.locale.value
-function changeLang (lang:string) {
-  i18n.locale.value = lang
+const changeLang: MenuProps['onClick'] = ({ key }) => {
+  localStorage.setItem('locale', String(key))
+  i18n.locale.value = String(key)
 }
 </script>
 
