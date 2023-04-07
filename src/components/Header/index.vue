@@ -60,7 +60,7 @@ const changeLang: MenuProps['onClick'] = ({ key }) => {
 
 <style lang="scss" scoped>
 .app_header {
-  $header_height: 70px;
+  $header_height: 60px;
 
   height: $header_height;
   margin-bottom: 10px;
@@ -89,8 +89,8 @@ const changeLang: MenuProps['onClick'] = ({ key }) => {
     align-items: center;
     cursor: pointer;
     .logoImg {
-      width: 50px;
-      height: 50px;
+      width: 45px;
+      height: 45px;
     }
     .logoName {
       font-size: 18px;
@@ -113,8 +113,8 @@ const changeLang: MenuProps['onClick'] = ({ key }) => {
     display: flex;
     align-items: center;
     .user_avatar {
-      width: 50px;
-      height: 50px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       cursor: pointer;
     }
