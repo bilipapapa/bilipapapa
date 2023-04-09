@@ -63,7 +63,6 @@ const changeLang: MenuProps['onClick'] = ({ key }) => {
   $header_height: 60px;
 
   height: $header_height;
-  margin-bottom: 10px;
   position: sticky;
   top: 0;
   left: 0;
@@ -74,6 +73,7 @@ const changeLang: MenuProps['onClick'] = ({ key }) => {
     background-size: 9px 9px;
     backdrop-filter: saturate(50%) blur(4px);
     -webkit-backdrop-filter: saturate(50%) blur(4px);
+    z-index: 10;
   }
 
   &-content {
