@@ -4,7 +4,6 @@
       <div class="menu-box-1">
         <div class="msg-box"></div>
 
-        <!-- :prefix-icon="Search" -->
         <div class="">
           <el-input
             type="text"

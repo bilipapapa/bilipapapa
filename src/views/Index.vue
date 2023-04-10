@@ -24,8 +24,8 @@
     left: 0;
     width: 100%;
     height: calc(100% - 70px);
-    background: transparent url(/src/assets/img/app_bg.png) no-repeat 0 0/100%
-      100%;
+    // background: transparent url(/src/assets/img/app_bg.png) no-repeat 0 0/100%
+    //   100%;
     filter: blur(5px);
     z-index: -99;
     background-size: cover;
