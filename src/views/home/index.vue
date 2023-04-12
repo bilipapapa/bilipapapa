@@ -35,29 +35,20 @@
 </template>
 
 <script setup lang="ts">
-import { Search } from '@element-plus/icons-vue';
+import { Search } from '@element-plus/icons-vue'
+import store from '@/store'
 defineOptions({
   name: 'Home',
 })
 
 const searchTxt = ref<string>('')
+const menu = store.menu
+console.log(menu)
 
 const menuInfo = reactive({
-  menuList1: [
-    { name: '1', icon: '', link: '' },
-    { name: '2', icon: '', link: '' },
-    { name: '3', icon: '', link: '' },
-    { name: '4', icon: '', link: '' },
-    { name: '5', icon: '', link: '' },
-    { name: '6', icon: '', link: '' },
-  ],
+  menuList1: menu.menuList.slice(0, 6),
 
-  menuList2: [
-    { name: '7', icon: '', link: '' },
-    { name: '8', icon: '', link: '' },
-    { name: '9', icon: '', link: '' },
-    { name: '10', icon: '', link: '' },
-  ],
+  menuList2: menu.menuList.slice(6, 10),
 })
 
 const resize = () => {
