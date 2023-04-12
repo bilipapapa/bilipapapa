@@ -1,16 +1,20 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router/index'
-import ElementPlus from 'element-plus'
-import '@/style/index.scss'
-import 'element-plus/dist/index.css'
-import Antd from 'ant-design-vue'
-import 'ant-design-vue/dist/antd.css'
+import { createPinia } from 'pinia'
 import { createI18n } from 'vue-i18n'
+/* UI */
+import ElementPlus from 'element-plus'
+import Antd from 'ant-design-vue'
+/* style */
+import 'element-plus/dist/index.css'
+import 'ant-design-vue/dist/antd.css'
+import '@/style/index.scss'
+import '@/assets/fonts/iconfont.css'
+
 import zh from '@/lang/zh'
 import en from '@/lang/en'
 import ja from '@/lang/ja'
-import { createPinia } from 'pinia'
 
 const app = createApp(App)
 app.use(createPinia())
