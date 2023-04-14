@@ -100,6 +100,9 @@ const changeLang: MenuProps['onClick'] = ({ key }) => {
 
   .menu-box {
     flex: 1;
+    border: 1px dashed #bbb;
+    height: 100%;
+    margin: 0 50px;
   }
 
   .lang-box {

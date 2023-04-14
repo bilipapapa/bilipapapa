@@ -11,6 +11,8 @@ import 'element-plus/dist/index.css'
 import 'ant-design-vue/dist/antd.css'
 import '@/style/index.scss'
 import '@/assets/fonts/iconfont.css'
+/* js */
+import  '@/assets/fonts/iconfont'
 
 import zh from '@/lang/zh'
 import en from '@/lang/en'

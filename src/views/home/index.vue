@@ -15,16 +15,20 @@
 
           <div class="flex">
             <div class="menuList1 flex">
-              <div v-for="item in menuInfo.menuList1" class="module menu-item">
-                <img src="" alt="" />
-                <span>{{ item.name }}</span>
+              <div
+                v-for="item in menuInfo.menuList1"
+                class="module menu-item flex-col"
+                @click="toPath(item.path)"
+              >
+                <I :icon="item.icon"></I>
+                <div class="menuName">{{ item.name }}</div>
               </div>
             </div>
 
             <div class="menuList2 flex">
               <div v-for="item in menuInfo.menuList2" class="module menu-item">
                 <img src="" alt="" />
-                <span>{{ item.name }}</span>
+                <div>{{ item.name }}</div>
               </div>
             </div>
           </div>
@@ -37,6 +41,8 @@
 <script setup lang="ts">
 import { Search } from '@element-plus/icons-vue'
 import store from '@/store'
+import { ElMessage } from 'element-plus'
+const router = useRouter()
 defineOptions({
   name: 'Home',
 })
@@ -50,6 +56,16 @@ const menuInfo = reactive({
 
   menuList2: menu.menuList.slice(6, 10),
 })
+
+const toPath = (path: string) => {
+  if (!path) {
+    return ElMessage.error('无path链接')
+  }
+  let routeUrl = router.resolve({
+    path: path,
+  })
+  window.open(routeUrl.href, '_blank')
+}
 
 const resize = () => {
   let homeWidth = homeRef.value.offsetWidth
@@ -72,7 +88,7 @@ $main_width: calc(0.8 * var(--screen_width));
 $msgBox_width: calc(0.54 * #{$main_width});
 $module_width: calc(0.09 * #{$main_width});
 $module_margin: calc(0.01 * #{$main_width});
-$modele_bg: rgba(255, 255, 255, 0.8);
+$module_bg: rgba(255, 255, 255, 0.8);
 $module_shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
 .home {
   height: 100%;
@@ -82,6 +98,10 @@ $module_shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
     height: 1600px;
   }
 
+  .I {
+    font-size: 50px;
+  }
+
   .menu-box-1 {
     display: flex;
     width: 100%;
@@ -89,7 +109,7 @@ $module_shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
     .msg-box {
       width: $msgBox_width;
       height: calc(0.22 * $main_width);
-      background-color: $modele_bg;
+      background-color: $module_bg;
       box-shadow: $module_shadow;
     }
     .search {
@@ -101,7 +121,7 @@ $module_shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
     }
 
     :deep(.search .el-input__wrapper) {
-      background: $modele_bg !important;
+      background: $module_bg !important;
     }
     .menuList1 {
       display: grid;
@@ -111,6 +131,9 @@ $module_shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
       padding: 0 $module_margin;
       .module {
         width: $module_width;
+        .menuName {
+          margin-top: 8px;
+        }
       }
     }
 
@@ -131,9 +154,22 @@ $module_shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 26px;
+    font-family: '黑体';
+    color: #60bbff;
     aspect-ratio: 1;
-    background: $modele_bg;
+    cursor: pointer;
+    background: $module_bg;
     box-shadow: $module_shadow;
+
+    > div {
+      display: inline-block;
+    }
+
+    &:hover {
+      // box-shadow: 0 0 0 18px transparent;
+      // animation: pulse 1s;
+    }
   }
 }
 </style>

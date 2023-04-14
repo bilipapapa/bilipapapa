@@ -1,0 +1,11 @@
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #60bbff;
+  }
+}
+
+@keyframes move-left {
+  to {
+    transform: translateX(-100%);
+  }
+}
