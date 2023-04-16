@@ -1,7 +1,7 @@
 <template>
   <div class="home" ref="homeRef">
     <main class="home-main">
-      <div class="menu-box-1">
+      <div class="menu-box">
         <div class="msg-box"></div>
 
         <div class="">
@@ -34,6 +34,15 @@
           </div>
         </div>
       </div>
+
+      <div class="menu-box">
+        <div class="menuList3 flex">
+          <div v-for="item in menuInfo.menuList3" class="module menu-item">
+            <img src="" alt="" />
+            <div>{{ item.name }}</div>
+          </div>
+        </div>
+      </div>
     </main>
   </div>
 </template>
@@ -53,8 +62,8 @@ console.log(menu)
 
 const menuInfo = reactive({
   menuList1: menu.menuList.slice(0, 6),
-
   menuList2: menu.menuList.slice(6, 10),
+  menuList3: menu.menuList.slice(10, 20),
 })
 
 const toPath = (path: string) => {
@@ -87,6 +96,9 @@ onMounted(() => {
 $main_width: calc(0.8 * var(--screen_width));
 $msgBox_width: calc(0.54 * #{$main_width});
 $module_width: calc(0.09 * #{$main_width});
+$module_width2: calc(0.173334 * #{$main_width});
+$module_width3: calc(0.19 * #{$main_width});
+$module_width4: calc(0.22 * #{$main_width});
 $module_margin: calc(0.01 * #{$main_width});
 $module_bg: rgba(255, 255, 255, 0.8);
 $module_shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
@@ -102,10 +114,10 @@ $module_shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
     font-size: 50px;
   }
 
-  .menu-box-1 {
-    display: flex;
+  .menu-box {
     width: 100%;
-    height: 57%;
+    display: flex;
+    justify-content: center;
     .msg-box {
       width: $msgBox_width;
       height: calc(0.22 * $main_width);
@@ -117,7 +129,7 @@ $module_shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
       margin-bottom: $module_margin;
       width: calc(100% - $module_margin);
       height: calc(0.02 * $main_width);
-      z-index: -1;
+      z-index: 0;
     }
 
     :deep(.search .el-input__wrapper) {
@@ -147,6 +159,18 @@ $module_shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
         aspect-ratio: auto;
       }
     }
+
+    .menuList3 {
+      display: grid;
+      grid-template-columns: repeat(3, $module_width2) $module_width3 $module_width4;
+      grid-template-rows: repeat(2, calc(0.07 * $main_width));
+      gap: $module_margin;
+      .module {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: auto;
+      }
+    }
   }
 
   .menu-item {
@@ -161,6 +185,7 @@ $module_shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     background: $module_bg;
     box-shadow: $module_shadow;
+    border-radius: 10px;
 
     > div {
       display: inline-block;
