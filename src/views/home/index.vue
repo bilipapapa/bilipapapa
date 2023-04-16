@@ -107,7 +107,7 @@ $module_shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
   .home-main {
     width: $main_width;
     margin: $module_margin auto 0;
-    height: 1600px;
+    height: 1536px;
   }
 
   .I {
