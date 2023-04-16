@@ -14,7 +14,7 @@ defineOptions({
 
 interface IconProps {
   icon: string
-  type: 'svg' | 'icon'
+  type?: 'svg' | 'icon'
 }
 const props = withDefaults(defineProps<IconProps>(), {
   icon: '',

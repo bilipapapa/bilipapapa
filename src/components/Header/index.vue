@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { MenuProps } from 'ant-design-vue';
+import { MenuProps } from 'ant-design-vue'
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
 defineOptions({
@@ -66,6 +66,7 @@ const changeLang: MenuProps['onClick'] = ({ key }) => {
   position: sticky;
   top: 0;
   left: 0;
+  z-index: 10;
   border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
   &-wrapper {
     height: 100%;
@@ -73,7 +74,6 @@ const changeLang: MenuProps['onClick'] = ({ key }) => {
     background-size: 9px 9px;
     backdrop-filter: saturate(50%) blur(4px);
     -webkit-backdrop-filter: saturate(50%) blur(4px);
-    z-index: 10;
   }
 
   &-content {
