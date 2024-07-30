@@ -5,17 +5,20 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
-import DefineOptions from 'unplugin-vue-define-options/dist/vite'
+// import DefineOptions from 'unplugin-vue-define-options/dist/vite'
 import vueI18n from '@intlify/vite-plugin-vue-i18n'
+import setupExtend from 'vite-plugin-vue-setup-extend'
 // https://vitejs.dev/config/
+
 export default defineConfig({
   plugins: [
     vue(),
+    setupExtend(), // 简便定义组件名的插件 暂停使用DefineOptions
+    // DefineOptions(), // 简化命名组件的插件
     //配置vueI18n
     vueI18n({
       include: path.resolve(__dirname, 'src/lang/**'),
     }),
-    DefineOptions(), // 简化命名组件的插件
     AutoImport({
       imports: ['vue', 'pinia', 'vue-router', 'vue-i18n'], // 加上后不用写import { ref } from 'vue'了
       resolvers: [ElementPlusResolver()],

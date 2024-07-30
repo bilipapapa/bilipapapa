@@ -6,12 +6,7 @@
   <i v-else :class="`I icon-font ${props.icon}}}`"></i>
 </template>
 
-<script setup lang="ts">
-defineOptions({
-  name: 'Icon',
-  inheritAttrs: false,
-})
-
+<script setup lang="ts" name="Icon">
 interface IconProps {
   icon: string
   type?: 'svg' | 'icon'

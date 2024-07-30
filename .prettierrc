@@ -5,5 +5,5 @@
   "useTabs": false,
   "bracketSpacing": true,
   "endOfLine": "auto",
-  "trailingCommas": "es5"
+  "trailingComma": "all"
 }

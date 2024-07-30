@@ -47,23 +47,20 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="Home">
 import { Search } from '@element-plus/icons-vue'
-import store from '@/store'
 import { ElMessage } from 'element-plus'
+
+import store from '@/store'
 const router = useRouter()
-defineOptions({
-  name: 'Home',
-})
 
 const searchTxt = ref<string>('')
-const menu = store.menu
-console.log(menu)
+const { menuStore } = store
 
 const menuInfo = reactive({
-  menuList1: menu.menuList.slice(0, 6),
-  menuList2: menu.menuList.slice(6, 10),
-  menuList3: menu.menuList.slice(10, 20),
+  menuList1: menuStore.menuList.slice(0, 6),
+  menuList2: menuStore.menuList.slice(6, 10),
+  menuList3: menuStore.menuList.slice(10, 20),
 })
 
 const toPath = (path: string) => {
@@ -81,7 +78,7 @@ const resize = () => {
   if (homeWidth)
     document.documentElement.style.setProperty(
       '--screen_width',
-      `${homeWidth}px`
+      `${homeWidth}px`,
     )
 }
 

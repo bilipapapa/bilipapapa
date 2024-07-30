@@ -35,13 +35,10 @@
   </header>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="Header">
 import { MenuProps } from 'ant-design-vue'
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
-defineOptions({
-  name: 'Header',
-})
 const state = reactive({
   logoName: '待定',
   userName: '用户名',
